@@ -1,6 +1,6 @@
 # Sentry
 
-Sentry is a PHP 5.3+ fully-featured authentication & authorization system. It also provides additional features such as user groups and additional security features.
+Sentry is a PHP 7.2+ fully-featured authentication & authorization system. It also provides additional features such as user groups and additional security features.
 
 Sentry is a framework agnostic set of interfaces with default implementations, though you can substitute any implementations you see fit.
 
@@ -28,13 +28,23 @@ It also provides additional features such as user groups and additional security
 
 Installation of Sentry is very easy. We've got a number of guides to get Sentry working with your favorite framework or on it's own:
 
-- [Install Sentry](https://cartalyst.com/manual/sentry#installation)
+In your `composer.json` file add `"cartalyst/sentry": "dev-feature/laravel-5.7",` to the `require` section.
+
+Then add
+
+```
+"repositories": [
+	{
+		"type": "git",
+		"url": "https://github.com/JamesMahy/sentry.git"
+	},		
+]
+```
+
+Once you've done this, you can follow the instruction here ignoring the Preparation section [Install Sentry](https://cartalyst.com/manual/sentry#installation)
 
 ### Getting Started
 
-- Use in [Laravel 4](https://cartalyst.com/manual/sentry#laravel-4)
-- Use in [FuelPHP 1](https://cartalyst.com/manual/sentry#fuelphp-1.x)
-- Use in [CodeIgniter 3](https://cartalyst.com/manual/sentry#codeigniter-3.0-dev)
 - Use [natively (through composer)](https://cartalyst.com/manual/sentry#native)
 
 ### Upgrading
