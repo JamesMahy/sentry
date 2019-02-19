@@ -74,7 +74,7 @@ class SentryServiceProvider extends ServiceProvider {
 	 */
 	protected function registerHasher()
 	{
-		$this->app['sentry.hasher'] = $this->app->share(function($app)
+		$this->app->singleton('sentry.hasher', function($app)
 		{
 			$hasher = $app['config']->get('cartalyst.sentry.hasher');
 
@@ -108,7 +108,7 @@ class SentryServiceProvider extends ServiceProvider {
 	 */
 	protected function registerUserProvider()
 	{
-		$this->app['sentry.user'] = $this->app->share(function($app)
+		$this->app->singleton('sentry.user', function($app)
 		{
 			$config = $app['config']->get('cartalyst.sentry');
 
@@ -162,7 +162,7 @@ class SentryServiceProvider extends ServiceProvider {
 	 */
 	protected function registerGroupProvider()
 	{
-		$this->app['sentry.group'] = $this->app->share(function($app)
+		$this->app->singleton('sentry.group',function($app)
 		{
 			$config = $app['config']->get('cartalyst.sentry');
 
@@ -201,7 +201,7 @@ class SentryServiceProvider extends ServiceProvider {
 	 */
 	protected function registerThrottleProvider()
 	{
-		$this->app['sentry.throttle'] = $this->app->share(function($app)
+		$this->app->singleton('sentry.throttle',function($app)
 		{
 			$config = $app['config']->get('cartalyst.sentry');
 
@@ -255,7 +255,7 @@ class SentryServiceProvider extends ServiceProvider {
 	 */
 	protected function registerSession()
 	{
-		$this->app['sentry.session'] = $this->app->share(function($app)
+		$this->app->singleton('sentry.session', function($app)
 		{
 			$key = $app['config']->get('cartalyst.sentry.cookie.key');
 
@@ -270,7 +270,7 @@ class SentryServiceProvider extends ServiceProvider {
 	 */
 	protected function registerCookie()
 	{
-		$this->app['sentry.cookie'] = $this->app->share(function($app)
+		$this->app->singleton('sentry.cookie',function($app)
 		{
 			$key = $app['config']->get('cartalyst.sentry.cookie.key');
 
@@ -298,7 +298,7 @@ class SentryServiceProvider extends ServiceProvider {
 	 */
 	protected function registerSentry()
 	{
-		$this->app['sentry'] = $this->app->share(function($app)
+		$this->app->singleton('sentry', function($app)
 		{
 			return new Sentry(
 				$app['sentry.user'],
